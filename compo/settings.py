@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import os,sys
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -17,10 +17,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=22h7lmp_ch$e5-1e8-i%#)mqxg-$5v&j3t0#$vb$l()4m=2m&'
+sys.path.insert(0, '/root/')
+from secret import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -32,9 +33,7 @@ ALLOWED_HOSTS = []
 JENKINS_TASKS = (
     'django_jenkins.tasks.run_pep8',
     'django_jenkins.tasks.run_pyflakes',
-    'django_jenkins.tasks.run_jslint',
     'django_jenkins.tasks.run_csslint',    
-    'django_jenkins.tasks.run_sloccount'
 )
 
 PROJECT_APPS = ['compo']
@@ -93,3 +92,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
