@@ -12,6 +12,6 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def index (request):
     if request.method == "GET":
-        return HttpResponse("hello test")
+    return HttpResponse("hello test")
         
 
